@@ -16,14 +16,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        // CHANGE - Seed the database with meaningful relationships between the models
 
-        User::factory(10)->create();
-        Sales::factory(10)->create();
-        Products::factory(10)->create();
-        Employees::factory(10)->create();
+        // User::factory(10)->create();
+        // Sales::factory(10)->create();
+        // Products::factory(10)->create();
+        // Employees::factory(10)->create();
+
+        Employees::factory()
+            ->has(Sales::factory()->count(3))
+            ->create();
+
+        Products::factory()
+            ->has(Sales::factory()->count(3))
+            ->create();
+
+        Sales::factory()->count(10)->create();
     }
 }

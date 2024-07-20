@@ -12,11 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
-
-            // CHANGE - Custom primary key to reflect CSV data
-            // $table->id();
-            $table->bigIncrements('product_id');
-
+            $table->id();
             $table->string('name');
 
             // CHANGE - Money should be stored as decimal.

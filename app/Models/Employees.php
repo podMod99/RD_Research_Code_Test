@@ -2,15 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Employees extends Model
 {
     use HasFactory;
-
-    // CHANGE - Custom primary key to reflect CSV data
-    protected $primaryKey = 'employee_id';
 
     protected $fillable = [
         'first_name',
@@ -18,6 +16,11 @@ class Employees extends Model
         'date_of_birth',
         'email',
     ];
+
+    public function sales(): HasMany
+    {
+        return $this->hasMany(Sales::class);
+    }
 
     // CHANGE - Removed $timestamps = false since timestamps are now columns in the table
     // public $timestamps = false; 

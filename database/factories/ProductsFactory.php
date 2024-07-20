@@ -23,11 +23,11 @@ class ProductsFactory extends Factory
 
             // CHANGE - Added range reflecting CSV data
             // 'original_price' => fake()->randomFloat(2),
-            'original_price' => fake()->randomFloat(2, 1, 100),
+            'original_price' => fake()->randomFloat(2, 10, 100),
 
             // CHANGE - Added range reflecting CSV data
             // 'discount_20%_when_over_price' => fake()->randomFloat(2),
-            'discount_20%_when_over_price' => fake()->randomFloat(2, 100, 900),
+            'discount_20%_when_over_price' => fake()->randomFloat(2, 400, 500),
         ];
     }
 }
