@@ -13,7 +13,7 @@ class Products extends Model
     protected $fillable = [
         'name',
         'original_price',
-        'discount_20%_when_over_price',
+        'discount_20_percent_when_over_price',
     ];
 
 
